@@ -1,0 +1,27 @@
+.loading {
+    min-height: min(62vh, 620px);
+    display: grid;
+    place-items: center;
+
+    .spinner {
+        width: 46px;
+        height: 46px;
+        border: 4px solid #dfe4d8;
+        border-top-color: var(--color-primary);
+        border-right-color: var(--color-accent);
+        border-radius: 50%;
+        animation: folioSpin 900ms linear infinite;
+    }
+
+    @keyframes folioSpin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .spinner {
+            animation-duration: 2.4s;
+        }
+    }
+}
