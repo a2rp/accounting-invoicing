@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FiArrowDownLeft, FiArrowRight, FiArrowUpRight, FiCheck, FiChevronRight, FiClock, FiFileText, FiPlus, FiRefreshCw, FiTrendingUp } from "react-icons/fi";
+import { FiArrowDownLeft, FiArrowRight, FiArrowUpRight, FiCheck, FiChevronRight, FiClock, FiFileText, FiPlus, FiRefreshCw } from "react-icons/fi";
 import { formatCurrency, formatDate, getClientName } from "../../utils.js";
 import styles from "./styles.module.css";
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FiBookOpen, FiMenu, FiPlus, FiX } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import styles from "./styles.module.css";
@@ -16,7 +16,6 @@ const Header = ({ onNewInvoice }) => {
     const [hidden, setHidden] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const headerRef = useRef(null);
-    const location = useLocation();
 
     useEffect(() => {
         let previous = window.scrollY;
@@ -29,11 +28,6 @@ const Header = ({ onNewInvoice }) => {
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, [menuOpen]);
-
-    useEffect(() => {
-        setMenuOpen(false);
-        setHidden(false);
-    }, [location.pathname]);
 
     useEffect(() => {
         const closeOutside = (event) => {

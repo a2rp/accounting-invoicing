@@ -30,16 +30,13 @@ const ReportsPage = ({ clients, invoices, transactions, showToast }) => {
         return Object.entries(totals).sort((a, b) => b[1] - a[1]);
     }, [periodTransactions]);
 
-    const months = useMemo(() => {
-        const result = [];
-        for (let offset = 5; offset >= 0; offset -= 1) {
-            const date = new Date(today.getFullYear(), today.getMonth() - offset, 1);
-            const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
-            const entries = periodTransactions.filter((item) => item.date.startsWith(key));
-            result.push({ key, label: new Intl.DateTimeFormat("en-US", { month: "short" }).format(date), income: entries.reduce((sum, item) => sum + Math.max(Number(item.amount), 0), 0), expenses: entries.reduce((sum, item) => sum + Math.abs(Math.min(Number(item.amount), 0)), 0) });
-        }
-        return result;
-    }, [periodTransactions, today]);
+    const months = [];
+    for (let offset = 5; offset >= 0; offset -= 1) {
+        const date = new Date(today.getFullYear(), today.getMonth() - offset, 1);
+        const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+        const entries = periodTransactions.filter((item) => item.date.startsWith(key));
+        months.push({ key, label: new Intl.DateTimeFormat("en-US", { month: "short" }).format(date), income: entries.reduce((sum, item) => sum + Math.max(Number(item.amount), 0), 0), expenses: entries.reduce((sum, item) => sum + Math.abs(Math.min(Number(item.amount), 0)), 0) });
+    }
     const maxMonthly = Math.max(1, ...months.map((item) => Math.max(item.income, item.expenses)));
     const largestExpense = Math.max(1, ...categories.map(([, amount]) => amount));
     const outstanding = invoices.filter((invoice) => invoice.status !== "Paid" && invoice.status !== "Draft").reduce((sum, invoice) => sum + Number(invoice.amount), 0);

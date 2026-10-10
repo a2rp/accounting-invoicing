@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { FiArrowUpRight, FiBriefcase, FiEdit2, FiMail, FiPlus, FiSearch, FiTrash2, FiUser, FiUsers } from "react-icons/fi";
-import { downloadCsv, formatCurrency, formatDate, getClientName } from "../../utils.js";
+import { downloadCsv, formatCurrency, formatDate } from "../../utils.js";
 import styles from "./styles.module.css";
 
 const ClientsPage = ({ clients, invoices, openCreate, openEdit, openDetails, requestDelete, showToast }) => {
