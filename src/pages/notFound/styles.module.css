@@ -1,0 +1,17 @@
+.page {
+    min-height: min(570px, calc(100vh - 270px));
+    display: grid;
+    place-items: center;
+
+    .paper { position: relative; width: min(620px, 100%); padding: 62px 48px 54px; overflow: hidden; border: 1px solid #d9d6c8; border-radius: 10px; background: repeating-linear-gradient(0deg, #fffefa 0, #fffefa 43px, #efeee5 44px, #fffefa 45px); box-shadow: 0 14px 35px rgb(65 61 48 / 8%); text-align: center; }
+    .mark { width: 58px; height: 58px; display: grid; place-items: center; margin: 0 auto 24px; border: 1px solid #ced7c8; border-radius: 50%; color: #557457; background: #edf0e8; font-size: 26px; }
+    .code { color: #8a8878; font-size: 13px; font-weight: 700; letter-spacing: .14em; }
+    h1 { max-width: 470px; margin: 15px auto 10px; color: #344638; font: 600 clamp(27px, 4vw, 38px)/1.15 Georgia, serif; letter-spacing: -.025em; }
+    p { max-width: 390px; margin: 0 auto; color: #77776d; font-size: 15px; line-height: 1.6; }
+    .backLink { min-height: 43px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 25px; padding: 0 15px; border: 1px solid #c8c8b8; border-radius: 7px; color: #385b45; background: #fffefa; font-size: 14px; font-weight: 650; text-decoration: none; transition: border-color 180ms ease, box-shadow 180ms ease; &:hover { border-color: #56806a; box-shadow: 0 5px 14px rgb(58 75 60 / 12%); } }
+    .pageNumber { position: absolute; right: 18px; bottom: 16px; color: #a09e91; font-size: 13px; letter-spacing: .1em; }
+
+    @media (max-width: 500px) {
+        .paper { padding: 45px 22px 55px; }
+    }
+}
