@@ -9,7 +9,10 @@ import Toast from "./components/toast/index.jsx";
 import { initialClients, initialInvoices, initialTransactions, makeId } from "./data.js";
 import styles from "./App.module.css";
 
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => {
+    const date = new Date();
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+};
 
 const getNextInvoiceNumber = (invoices) => {
     const largest = invoices.reduce((max, invoice) => Math.max(max, Number(invoice.id.replace("INV-", "")) || 2400), 2400);

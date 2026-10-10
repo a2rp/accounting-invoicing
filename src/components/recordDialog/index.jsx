@@ -6,7 +6,10 @@ import styles from "./styles.module.css";
 
 const titleByEntity = { invoice: "invoice", client: "client", transaction: "transaction" };
 
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => {
+    const date = new Date();
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+};
 
 const createDefaults = (entity, clients) => {
     if (entity === "invoice") return { title: "", clientId: clients[0]?.id || "", amount: "", issueDate: today(), dueDate: today(), status: "Draft", notes: "" };
