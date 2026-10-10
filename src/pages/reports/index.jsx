@@ -9,6 +9,7 @@ const ReportsPage = ({ clients, invoices, transactions, showToast }) => {
     const [period, setPeriod] = useState("This month");
     const [view, setView] = useState("Cash flow");
     const today = new Date();
+    const localToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
     const currentMonth = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}`;
     const threeMonthsAgo = new Date(today.getFullYear(), today.getMonth() - 2, 1);
     const startMonth = period === "This month" ? currentMonth : period === "Last 3 months" ? `${threeMonthsAgo.getFullYear()}-${String(threeMonthsAgo.getMonth() + 1).padStart(2, "0")}` : `${today.getFullYear()}-01`;
@@ -57,7 +58,7 @@ const ReportsPage = ({ clients, invoices, transactions, showToast }) => {
 
             <div className={styles.reportPaper}>
                 <div className={styles.paperTop}><div className={styles.paperBrand}><span className={styles.brandMark}>F</span><div><strong>Folio Books</strong><span>SMALL BUSINESS STATEMENT</span></div></div><label className={styles.periodSelect}><span>REPORTING PERIOD</span><select value={period} onChange={(event) => setPeriod(event.target.value)}>{periods.map((item) => <option key={item}>{item}</option>)}</select></label></div>
-                <div className={styles.statementTitle}><div><span>FINANCIAL SUMMARY</span><h2>{period}</h2></div><span className={styles.statementDate}>Prepared {formatDate(today.toISOString().slice(0, 10), { month: "long", day: "numeric", year: "numeric" })}</span></div>
+                <div className={styles.statementTitle}><div><span>FINANCIAL SUMMARY</span><h2>{period}</h2></div><span className={styles.statementDate}>Prepared {formatDate(localToday, { month: "long", day: "numeric", year: "numeric" })}</span></div>
 
                 <div className={styles.statementTotals}>
                     <div className={styles.totalItem}><span><FiArrowDownLeft aria-hidden="true" /> Total income</span><strong>{formatCurrency(income)}</strong><small>Recorded deposits and client payments</small></div>
