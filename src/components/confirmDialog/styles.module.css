@@ -1,0 +1,148 @@
+.backdrop {
+    position: fixed;
+    z-index: 90;
+    inset: 0;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    background: rgb(27 38 32 / 48%);
+    backdrop-filter: blur(5px);
+
+    .dialog {
+        width: min(480px, 100%);
+        padding: 27px;
+        color: var(--color-ink);
+        background: var(--color-paper);
+        border: 1px solid rgb(255 255 255 / 70%);
+        border-radius: 20px;
+        box-shadow: 0 24px 76px rgb(15 24 19 / 25%);
+        animation: dialogIn 160ms ease-out both;
+
+        h2 {
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: 720;
+            letter-spacing: -0.55px;
+        }
+
+        > p {
+            margin-top: 8px;
+            color: var(--color-muted);
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .note {
+            padding: 11px 13px;
+            color: #765a37;
+            background: #f7f0e5;
+            border: 1px solid #eadcc4;
+            border-radius: 10px;
+            font-size: 13px;
+        }
+    }
+
+    .heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .alertIcon,
+    .close {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .alertIcon {
+        color: var(--color-danger);
+        background: #f9eae6;
+        border: 1px solid #eed2ca;
+    }
+
+    .close {
+        color: var(--color-muted);
+        background: transparent;
+        border: 1px solid transparent;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--color-ink);
+            background: var(--color-paper-soft);
+            border-color: var(--color-border);
+            box-shadow: 0 3px 10px rgb(38 59 50 / 8%);
+        }
+    }
+
+    .actions {
+        margin-top: 23px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        button {
+            min-height: 43px;
+            padding: 0 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 650;
+            transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+        }
+    }
+
+    .cancel {
+        color: var(--color-ink);
+        background: var(--color-paper);
+
+        &:hover,
+        &:focus-visible {
+            background: #f6f5ef;
+            border-color: #aab6aa;
+            box-shadow: 0 4px 12px rgb(38 59 50 / 9%);
+        }
+    }
+
+    .danger {
+        color: #fff;
+        background: var(--color-danger);
+        border-color: var(--color-danger) !important;
+
+        &:hover,
+        &:focus-visible {
+            background: #964238;
+            border-color: #964238 !important;
+            box-shadow: 0 4px 14px rgb(175 81 69 / 25%);
+        }
+    }
+
+    @keyframes dialogIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @media (max-width: 520px) {
+        padding: 14px;
+
+        .dialog {
+            padding: 22px 19px;
+            border-radius: 17px;
+        }
+
+        .actions {
+            flex-direction: column-reverse;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
