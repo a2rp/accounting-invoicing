@@ -6,6 +6,10 @@ import "./index.css";
 import App from "./App.jsx";
 
 OverlayScrollbars(document.body, {
+    overflow: {
+        x: "hidden",
+        y: "scroll",
+    },
     scrollbars: {
         theme: "os-theme-folio",
         autoHide: "move",
