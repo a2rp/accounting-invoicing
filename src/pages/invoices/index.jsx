@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { FiArrowDownToLine, FiArrowUpRight, FiCheck, FiEdit2, FiFileText, FiPlus, FiSearch, FiSend, FiTrash2 } from "react-icons/fi";
+import { FiDownload, FiArrowUpRight, FiCheck, FiEdit2, FiFileText, FiPlus, FiSearch, FiSend, FiTrash2 } from "react-icons/fi";
 import { getClientName, formatCurrency, formatDate, downloadCsv } from "../../utils.js";
 import styles from "./styles.module.css";
 
@@ -33,7 +33,7 @@ const InvoicesPage = ({ clients, invoices, openCreate, openEdit, openDetails, re
                     <p className={styles.subtitle}>Keep every client bill, due date, and payment in one tidy place.</p>
                 </div>
                 <div className={styles.headingActions}>
-                    <button className={styles.secondaryButton} type="button" onClick={exportInvoices}><FiArrowDownToLine aria-hidden="true" /> Export CSV</button>
+                    <button className={styles.secondaryButton} type="button" onClick={exportInvoices}><FiDownload aria-hidden="true" /> Export CSV</button>
                     <button className={styles.primaryButton} type="button" onClick={() => openCreate("invoice")}><FiPlus aria-hidden="true" /> New invoice</button>
                 </div>
             </div>
