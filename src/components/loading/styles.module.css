@@ -1,3 +1,9 @@
+@keyframes folioSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .loading {
     min-height: min(62vh, 620px);
     display: grid;
@@ -11,12 +17,6 @@
         border-right-color: var(--color-accent);
         border-radius: 50%;
         animation: folioSpin 900ms linear infinite;
-    }
-
-    @keyframes folioSpin {
-        to {
-            transform: rotate(360deg);
-        }
     }
 
     @media (prefers-reduced-motion: reduce) {
