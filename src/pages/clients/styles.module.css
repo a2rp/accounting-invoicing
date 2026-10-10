@@ -1,0 +1,74 @@
+.page {
+    max-width: 1320px;
+    margin: 0 auto;
+
+    .breadcrumb { display: flex; gap: 10px; margin-bottom: 25px; color: #887f70; font-size: 13px; strong { color: #33473a; font-weight: 650; } }
+    .heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 27px; }
+    .eyebrow { margin: 0 0 8px; color: #84806d; font-size: 13px; letter-spacing: .12em; font-weight: 700; }
+    h1 { margin: 0; color: #293b2f; font: 600 clamp(30px, 3vw, 38px)/1.12 Georgia, serif; letter-spacing: -.035em; }
+    .subtitle { margin: 10px 0 0; color: #77776d; font-size: 15px; line-height: 1.55; }
+    .actions { display: flex; gap: 10px; }
+    .exportButton, .addButton { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border: 1px solid #c8c8b8; border-radius: 8px; color: #35473a; background: #fffefa; font-size: 14px; font-weight: 650; cursor: pointer; transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease; &:hover { border-color: #56806a; box-shadow: 0 5px 14px rgb(58 75 60 / 12%); } &:focus-visible { outline: 3px solid rgb(92 136 107 / 28%); outline-offset: 2px; } }
+    .addButton { color: #fffdf6; background: #385b45; border-color: #385b45; svg { font-size: 17px; } &:hover { background: #2d4a39; } }
+
+    .contactDesk { display: grid; grid-template-columns: minmax(270px, .72fr) minmax(0, 1.65fr); min-height: 660px; overflow: hidden; border: 1px solid #d9d7cb; border-radius: 12px; background: #fffefa; box-shadow: 0 8px 28px rgb(65 61 48 / 4%); }
+    .directory { display: flex; flex-direction: column; min-width: 0; border-right: 1px solid #e6e4d9; background: #f8f7f0; }
+    .directoryHead { display: flex; align-items: center; justify-content: space-between; padding: 22px 19px 17px; border-bottom: 1px solid #e9e7dc; h2 { display: flex; align-items: center; gap: 8px; margin: 7px 0 0; color: #37483a; font: 600 21px/1.1 Georgia, serif; svg { color: #668169; font-size: 17px; } span { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-left: 3px; border-radius: 50%; color: #65705f; background: #e7e8dc; font: 600 13px/1 sans-serif; } } }
+    .directoryLabel { color: #8a8878; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+    .addSmall { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid #d9dace; border-radius: 7px; color: #527258; background: #fffefa; font-size: 18px; cursor: pointer; transition: border-color 180ms ease, box-shadow 180ms ease; &:hover { border-color: #789279; box-shadow: 0 4px 10px rgb(59 72 55 / 10%); } }
+    .search { display: flex; align-items: center; gap: 9px; height: 42px; margin: 14px 14px 9px; padding: 0 11px; border: 1px solid #e0ded2; border-radius: 7px; color: #888878; background: #fffefa; svg { font-size: 16px; } input { width: 100%; min-width: 0; border: 0; outline: 0; color: #3f4b40; background: transparent; font: inherit; font-size: 13px; } input::placeholder { color: #99998e; } &:focus-within { border-color: #759079; box-shadow: 0 0 0 3px rgb(92 136 107 / 12%); } }
+    .clientList { display: flex; flex: 1; flex-direction: column; gap: 4px; padding: 5px 9px 12px; }
+    .clientCard, .selectedClient { width: 100%; min-height: 72px; display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 9px; padding: 9px; border: 1px solid transparent; border-radius: 8px; color: #3f493f; background: transparent; text-align: left; cursor: pointer; transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease; &:hover { border-color: #e0dfd2; background: #fffefa; } }
+    .selectedClient { border-color: #d6ddce; background: #fffefa; box-shadow: 0 3px 10px rgb(58 65 48 / 6%); }
+    .index { color: #a09e90; font: 600 13px/1 Georgia, serif; }
+    .clientIdentity { min-width: 0; strong { display: block; overflow: hidden; color: #414c40; font-size: 14px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; } small { display: block; overflow: hidden; margin-top: 5px; color: #898a7e; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; } }
+    .invoiceCount { display: grid; gap: 3px; justify-items: end; color: #54694f; font-size: 14px; font-weight: 700; small { color: #939184; font-size: 13px; font-weight: 400; } }
+    .directoryFoot { padding: 13px 16px; border-top: 1px solid #e8e6da; color: #929083; font-size: 13px; }
+    .emptyList { min-height: 220px; display: grid; justify-items: center; align-content: center; gap: 9px; color: #77786e; font-size: 13px; svg { color: #8b947f; font-size: 24px; } strong { color: #3d4a3f; font-size: 15px; } button { border: 0; color: #41694a; background: transparent; font-size: 13px; cursor: pointer; } }
+
+    .profile { min-width: 0; padding: 24px 29px 18px; }
+    .profileTop { display: flex; align-items: center; justify-content: space-between; }
+    .profileType { display: inline-flex; align-items: center; gap: 8px; color: #898775; font-size: 13px; font-weight: 700; letter-spacing: .1em; svg { color: #6c866b; font-size: 16px; } }
+    .profileActions { display: flex; gap: 6px; button { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid #e4e2d8; border-radius: 7px; color: #73786c; background: #fffefa; font-size: 15px; cursor: pointer; transition: border-color 180ms ease, box-shadow 180ms ease, color 180ms ease; &:hover { border-color: #a2b29d; color: #3f694d; box-shadow: 0 3px 9px rgb(59 72 55 / 9%); } } .deleteButton:hover { border-color: #ebcbc3; color: #ad5144; } }
+    .nameBlock { display: flex; align-items: center; gap: 17px; padding: 25px 0 22px; border-bottom: 1px solid #e9e7dc; }
+    .monogram { width: 62px; height: 62px; display: grid; place-items: center; border: 1px solid #d4ddcf; border-radius: 50%; color: #3d6148; background: #ebefe5; font: 600 22px Georgia, serif; }
+    .nameBlock h2 { margin: 0; color: #2e4033; font: 600 clamp(22px, 2vw, 29px)/1.15 Georgia, serif; }
+    .nameBlock p { margin: 7px 0 0; color: #898a7f; font-size: 14px; }
+    .contactLine, .emailLine { min-height: 68px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #eeece4; color: inherit; }
+    .emailLine { text-decoration: none; transition: background 180ms ease; &:hover { background: #faf9f3; } > svg { margin-left: auto; color: #82907d; } }
+    .contactIcon { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid #e2e3d9; border-radius: 8px; color: #70816b; background: #faf9f2; font-size: 16px; }
+    .contactLine div:last-child, .emailLine div:nth-child(2) { display: grid; gap: 5px; span { color: #8a897e; font-size: 13px; } strong { color: #495449; font-size: 14px; font-weight: 600; } }
+    .accountStats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 20px 0; border-bottom: 1px solid #e9e7dc; div { display: grid; gap: 6px; } span { color: #88887c; font-size: 13px; } strong { color: #3e4e40; font: 600 18px/1.2 Georgia, serif; } }
+    .invoiceSection { padding-top: 21px; }
+    .invoiceHeading { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 12px; h3 { display: flex; align-items: center; gap: 8px; margin: 6px 0 0; color: #38483b; font: 600 20px/1.1 Georgia, serif; span { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; color: #697365; background: #edeee6; font: 600 13px/1 sans-serif; } } button { min-height: 36px; display: inline-flex; align-items: center; gap: 7px; padding: 0 11px; border: 1px solid #cbd2c4; border-radius: 6px; color: #42634b; background: #fffefa; font-size: 13px; font-weight: 650; cursor: pointer; transition: box-shadow 180ms ease, border-color 180ms ease; &:hover { border-color: #779078; box-shadow: 0 3px 9px rgb(59 72 55 / 9%); } } }
+    .invoiceList { border-top: 1px solid #e9e7dc; }
+    .invoiceRow { min-height: 63px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-bottom: 1px solid #eeece4; }
+    .invoiceName { min-width: 0; display: grid; gap: 5px; padding: 8px 0; border: 0; color: #4a5448; background: transparent; text-align: left; cursor: pointer; strong { overflow: hidden; font-size: 14px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; } span { color: #8a897f; font-size: 13px; } &:hover strong { color: #3e6849; } }
+    .invoiceAmount { display: grid; justify-items: end; gap: 4px; flex: 0 0 auto; strong { color: #3d4b3e; font-size: 14px; } span { font-size: 13px; } }
+    .draft { color: #797360; } .sent { color: #506e83; } .overdue { color: #9b5548; } .paid { color: #557757; }
+    .noInvoices { padding: 17px; border: 1px dashed #d9d8cc; border-radius: 7px; color: #848477; background: #fbfaf5; font-size: 13px; line-height: 1.5; }
+    .profileFoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 14px; border-top: 1px solid #e9e7dc; color: #929184; font-size: 13px; button { display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; color: #436b4b; background: transparent; font-size: 13px; font-weight: 650; cursor: pointer; &:hover { color: #294c32; } } }
+    .noSelection { display: grid; justify-items: center; align-content: center; min-height: 500px; color: #818576; text-align: center; svg { color: #779078; font-size: 32px; } h2 { margin: 15px 0 5px; color: #394a3c; font: 600 23px Georgia, serif; } p { max-width: 360px; margin: 0 0 18px; font-size: 14px; line-height: 1.5; } }
+    .visuallyHidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 900px) {
+        .contactDesk { grid-template-columns: minmax(240px, .75fr) minmax(0, 1.4fr); }
+        .profile { padding-right: 20px; padding-left: 20px; }
+        .accountStats { gap: 8px; }
+    }
+
+    @media (max-width: 700px) {
+        .heading { align-items: flex-start; flex-direction: column; }
+        .contactDesk { display: flex; flex-direction: column; }
+        .directory { border-right: 0; border-bottom: 1px solid #e6e4d9; }
+        .clientList { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
+        .directoryFoot { display: none; }
+        .profile { padding: 20px 17px 16px; }
+    }
+
+    @media (max-width: 480px) {
+        .actions { width: 100%; .exportButton, .addButton { flex: 1; padding: 0 9px; } }
+        .accountStats { grid-template-columns: 1fr 1fr; }
+        .profileFoot { align-items: flex-start; flex-direction: column; }
+    }
+}
