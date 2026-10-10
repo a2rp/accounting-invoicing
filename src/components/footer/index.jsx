@@ -14,6 +14,7 @@ const links = [
     { label: "Email", address: "ash.ranjan09@gmail.com", href: "mailto:ash.ranjan09@gmail.com", Icon: FiMail },
     { label: "Support", address: "a2rp-donation-page.netlify.app", href: "https://a2rp-donation-page.netlify.app/", Icon: FiHeart },
     { label: "Buy Me a Coffee", address: "buymeacoffee.com/ashishranjan", href: "https://buymeacoffee.com/ashishranjan", Icon: FiCoffee },
+    { label: "Patreon", address: "patreon.com/ashishranjan", href: "https://www.patreon.com/ashishranjan", Icon: FiHeart },
 ];
 
 const Footer = () => (
