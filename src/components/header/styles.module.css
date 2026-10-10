@@ -1,0 +1,299 @@
+.header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 76px;
+    color: var(--color-ink);
+    background: rgb(255 254 250 / 94%);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(14px);
+    transition: transform 220ms ease, box-shadow 180ms ease;
+
+    &.hidden {
+        transform: translateY(-102%);
+    }
+
+    &.menuOpen {
+        transform: translateY(0);
+        box-shadow: 0 8px 26px rgb(35 48 41 / 10%);
+    }
+
+    .headerInner {
+        width: min(1480px, 100%);
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex: 0 0 auto;
+        color: var(--color-ink);
+        font-size: 23px;
+        font-weight: 760;
+        letter-spacing: -1.2px;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited {
+            text-decoration: none;
+        }
+    }
+
+    .brandMark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        color: var(--color-gold);
+        background: var(--color-ink);
+        border: 1px solid var(--color-ink);
+        border-radius: 12px 12px 12px 4px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .brandDot {
+        color: var(--color-accent);
+    }
+
+    .navigation {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: clamp(18px, 2.2vw, 38px);
+    }
+
+    .navLink {
+        position: relative;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        color: #58675e;
+        font-size: 14px;
+        font-weight: 650;
+        text-decoration: none;
+        transition: color 180ms ease;
+
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: 17px;
+            left: 0;
+            height: 3px;
+            content: "";
+            background: linear-gradient(90deg, #c8d68a, #4f805e);
+            border-radius: 999px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 180ms ease;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &.active {
+            color: var(--color-ink);
+            text-decoration: none;
+        }
+
+        &:hover::after,
+        &:focus-visible::after,
+        &.active::after {
+            transform: scaleX(1);
+        }
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .repository,
+    .newInvoice {
+        min-height: 42px;
+        padding: 0 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 650;
+        text-decoration: none;
+        transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &:visited,
+        &:active {
+            text-decoration: none;
+        }
+    }
+
+    .repository {
+        color: var(--color-ink);
+        background: var(--color-paper);
+
+        &:hover,
+        &:focus-visible {
+            border-color: #aab6aa;
+            box-shadow: 0 4px 13px rgb(38 59 50 / 10%);
+        }
+    }
+
+    .newInvoice {
+        color: #fff;
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+
+        &:hover,
+        &:focus-visible {
+            background: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+            box-shadow: 0 5px 15px rgb(53 102 79 / 20%);
+        }
+    }
+
+    .menuButton {
+        width: 42px;
+        height: 42px;
+        display: none;
+        place-items: center;
+        color: var(--color-ink);
+        background: var(--color-paper);
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-color: #aab6aa;
+            box-shadow: 0 4px 13px rgb(38 59 50 / 10%);
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .headerInner {
+            padding: 0 22px;
+            gap: 18px;
+        }
+
+        .navigation {
+            gap: 16px;
+        }
+
+        .repository {
+            padding: 0 12px;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .headerInner {
+            padding: 0 18px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: calc(100% + 1px);
+            right: 12px;
+            left: 12px;
+            height: auto;
+            padding: 12px;
+            display: none;
+            align-items: stretch;
+            flex-direction: column;
+            gap: 2px;
+            background: var(--color-paper);
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            box-shadow: 0 16px 40px rgb(38 59 50 / 12%);
+
+            &.navigationOpen {
+                display: flex;
+            }
+        }
+
+        .navLink {
+            min-height: 46px;
+            padding: 0 12px;
+            border-radius: 9px;
+
+            &::after {
+                right: auto;
+                bottom: 7px;
+                left: 12px;
+                width: 34px;
+                height: 2px;
+            }
+        }
+
+        .menuButton {
+            display: grid;
+        }
+    }
+
+    @media (max-width: 470px) {
+        height: 68px;
+
+        .headerInner {
+            padding: 0 13px;
+            gap: 8px;
+        }
+
+        .brand {
+            gap: 8px;
+            font-size: 21px;
+        }
+
+        .brandMark {
+            width: 35px;
+            height: 35px;
+        }
+
+        .repository {
+            width: 42px;
+            padding: 0;
+
+            span {
+                display: none;
+            }
+        }
+
+        .newInvoice {
+            min-width: 42px;
+            padding: 0 11px;
+
+            span {
+                display: none;
+            }
+        }
+
+        .actions {
+            gap: 7px;
+        }
+    }
+}
