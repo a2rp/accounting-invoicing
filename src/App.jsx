@@ -65,10 +65,11 @@ const App = () => {
 
     const requestDelete = useCallback((entity, record) => {
         const relatedInvoices = entity === "client" ? invoices.filter((invoice) => invoice.clientId === record.id) : [];
+        const relatedTransactions = entity === "client" ? transactions.filter((transaction) => transaction.clientId === record.id) : [];
         const title = entity === "client" ? "Delete this client?" : entity === "invoice" ? "Delete this invoice?" : "Delete this transaction?";
         const name = entity === "client" ? record.company : entity === "invoice" ? record.id : record.description;
         const message = entity === "client"
-            ? `Delete ${name} and remove its ${relatedInvoices.length} invoice record${relatedInvoices.length === 1 ? "" : "s"}?`
+            ? `Delete ${name} and remove its ${relatedInvoices.length} invoice record${relatedInvoices.length === 1 ? "" : "s"}? Its ${relatedTransactions.length} bank transaction${relatedTransactions.length === 1 ? " stays" : "s stay"} in the ledger without a client link.`
             : entity === "invoice"
               ? `Delete ${record.id} for ${record.title}? Related bank activity will stay in your books.`
               : `Delete the transaction “${name}” from your books?`;
@@ -82,9 +83,10 @@ const App = () => {
         if (entity === "client") {
             setClients((current) => current.filter((item) => item.id !== record.id));
             setInvoices((current) => current.filter((item) => item.clientId !== record.id));
-            setTransactions((current) => current.filter((item) => item.clientId !== record.id));
+            setTransactions((current) => current.map((item) => item.clientId === record.id ? { ...item, clientId: "" } : item));
         } else if (entity === "invoice") {
             setInvoices((current) => current.filter((item) => item.id !== record.id));
+            setTransactions((current) => current.map((item) => item.invoiceId === record.id ? { ...item, invoiceId: "" } : item));
         } else {
             setTransactions((current) => current.filter((item) => item.id !== record.id));
         }
