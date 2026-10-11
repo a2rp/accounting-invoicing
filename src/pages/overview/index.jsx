@@ -67,7 +67,7 @@ const OverviewPage = ({ clients, invoices, transactions, openCreate, openDetails
                         <Link className={styles.panelLink} to="/invoices">Open invoice register <FiArrowRight aria-hidden="true" /></Link>
                     </section>
 
-                    <section className={styles.bookNote}><img className={styles.noteImage} src={`${import.meta.env.BASE_URL}bookkeeping-ledger.webp`} alt="Ledger sheets and calculator on a bookkeeping desk" loading="lazy" /><div><strong>Good books, clear mind.</strong><p>Every edit, match, and invoice lives in this page session. Reload to restore the sample books.</p></div><FiRefreshCw aria-hidden="true" /></section>
+                    <section className={styles.bookNote}><img className={styles.noteImage} src={`${import.meta.env.BASE_URL}bookkeeping-ledger.webp`} alt="Ledger sheets and calculator on a bookkeeping desk" loading="eager" /><div><strong>Good books, clear mind.</strong><p>Every edit, match, and invoice lives in this page session. Reload to restore the sample books.</p></div><FiRefreshCw aria-hidden="true" /></section>
                 </aside>
             </div>
             {transactions.length === 0 && <button className={styles.firstEntry} type="button" onClick={() => { openCreate("transaction"); showToast("Enter the first entry in your ledger.", "info"); }}><FiPlus aria-hidden="true" /> Add your first transaction</button>}
