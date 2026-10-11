@@ -75,7 +75,7 @@ const App = () => {
               : `Delete the transaction “${name}” from your books?`;
         setDialog(null);
         setConfirmation({ entity, record, title, message, note: "This action cannot be undone in this demo workspace.", confirmLabel: `Delete ${entity}` });
-    }, [invoices]);
+    }, [invoices, transactions]);
 
     const confirmDelete = useCallback(() => {
         if (!confirmation) return;
