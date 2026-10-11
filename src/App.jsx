@@ -81,9 +81,10 @@ const App = () => {
         if (!confirmation) return;
         const { entity, record } = confirmation;
         if (entity === "client") {
+            const removedInvoiceIds = new Set(invoices.filter((invoice) => invoice.clientId === record.id).map((invoice) => invoice.id));
             setClients((current) => current.filter((item) => item.id !== record.id));
             setInvoices((current) => current.filter((item) => item.clientId !== record.id));
-            setTransactions((current) => current.map((item) => item.clientId === record.id ? { ...item, clientId: "" } : item));
+            setTransactions((current) => current.map((item) => item.clientId === record.id ? { ...item, clientId: "", invoiceId: removedInvoiceIds.has(item.invoiceId) ? "" : item.invoiceId } : item));
         } else if (entity === "invoice") {
             setInvoices((current) => current.filter((item) => item.id !== record.id));
             setTransactions((current) => current.map((item) => item.invoiceId === record.id ? { ...item, invoiceId: "" } : item));
@@ -92,7 +93,7 @@ const App = () => {
         }
         setConfirmation(null);
         showToast(`${entity[0].toUpperCase()}${entity.slice(1)} deleted.`);
-    }, [confirmation, showToast]);
+    }, [confirmation, invoices, showToast]);
 
     const markInvoiceSent = useCallback((invoice) => {
         setInvoices((current) => current.map((item) => item.id === invoice.id ? { ...item, status: "Sent" } : item));
